@@ -15,7 +15,9 @@ export const useMutateTask = () => {
       const previousTodo = utils.todo.getTasks.getData();
       if (previousTodo) {
         // キャッシュにあればその先頭に追加
-        utils.todo.getTasks.setData([res, ...previousTodo]);
+        // utils.todo.getTasks.setData(
+        //   [res, ...previousTodo],
+        // );
       }
       // zustandの中のstate.resetEditedTaskを削除
       reset();
@@ -27,9 +29,9 @@ export const useMutateTask = () => {
       // resはサーバーサイドからの戻り値
       const previousTodo = utils.todo.getTasks.getData();
       if (previousTodo) {
-        utils.todo.getTasks.setData(
-          previousTodo.map((task) => (task.id === res.id ? res : task))
-        );
+        // utils.todo.getTasks.setData(
+        //   previousTodo.map((task) => (task.id === res.id ? res : task))
+        // );
       }
       // zustandの中のstate.resetEditedTaskを削除
       reset();
@@ -43,9 +45,9 @@ export const useMutateTask = () => {
       // resはサーバーサイドからの戻り値
       const previousTodo = utils.todo.getTasks.getData();
       if (previousTodo) {
-        utils.todo.getTasks.setData(
-          previousTodo.filter((task) => task.id !== variables.taskId)
-        );
+        // utils.todo.getTasks.setData(
+        //   previousTodo.filter((task) => task.id !== variables.taskId)
+        // );
       }
       // zustandの中のstate.resetEditedTaskを削除
       reset();
