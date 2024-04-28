@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { type FormEvent } from "react";
 import useStore from "../store";
 import { useMutateTask } from "../hooks/useMutateTask";
 

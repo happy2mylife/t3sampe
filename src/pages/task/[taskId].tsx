@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { NextPage } from "next";
+import { type NextPage } from "next";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";

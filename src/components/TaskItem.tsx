@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { type FC } from "react";
 import Link from "next/link";
 import useStore from "../store";
-import { updateTaskInput } from "../schema/todo";
+import { type UpdateTaskInput } from "../schema/todo";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useMutateTask } from "../hooks/useMutateTask";
 
-export const TaskItem: FC<updateTaskInput> = ({ taskId, title, body }) => {
+export const TaskItem: FC<UpdateTaskInput> = ({ taskId, title, body }) => {
   const update = useStore((state) => state.updateEditedTask);
   const { deleteTaskMutation } = useMutateTask();
   return (
