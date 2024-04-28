@@ -1,41 +1,30 @@
 import {
   createTaskSchema,
   getSingleTaskSchema,
-  deleteSingleTaskSchema,
   updateTaskSchema,
+  deleteTaskSchema,
 } from "../../../schema/todo";
-import { router, protectedProcedure, publicProcedure } from "../trpc";
+import { publicProcedure, protectedProcedure, router } from "../trpc";
 
 export const todoRouter = router({
-  // protectedProcedure: task新規作成は認証が通っている場合のみ適用するので使用
-  // input: 適用したいValidationスキーマ
-  // mutation: 新規作成なので。この中でdbに接続する処理をprismaで実装
   createTask: protectedProcedure
     .input(createTaskSchema)
     .mutation(async ({ ctx, input }) => {
-      // prisma経由でDBにインサート
-      return await ctx.prisma.task.create({
-        // createで渡すデータ
+      const task = await ctx.prisma.task.create({
         data: {
-          // title, bodyはinputで受け取るのでスプレッドで展開
           ...input,
-          // 今ログインしているユーザー情報
           user: {
-            // connect: 既存の存在するレコードを関連づけたい場合に使用
-            // ログインしているユーザーのIDに一致するユーザーのレコードを検索してくれ、そのオブジェクトをuserフィールドに格納してくれる
             connect: {
-              id: ctx.session.user.id,
+              id: ctx.session?.user?.id,
             },
           },
         },
       });
+      return task;
     }),
-  // publicProcedure: タスク取得ではGithub認証を不要とするので
   getTasks: publicProcedure.query(({ ctx }) => {
-    console.log("getTasks");
     return ctx.prisma.task.findMany({
       where: {
-        // ログインしているユーザーが作成したタスクのみ取得
         userId: ctx.session?.user?.id,
       },
       orderBy: {
@@ -52,11 +41,10 @@ export const todoRouter = router({
         },
       });
     }),
-
   updateTask: protectedProcedure
     .input(updateTaskSchema)
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.task.update({
+      const task = await ctx.prisma.task.update({
         where: {
           id: input.taskId,
         },
@@ -65,11 +53,12 @@ export const todoRouter = router({
           body: input.body,
         },
       });
+      return task;
     }),
   deleteTask: protectedProcedure
-    .input(deleteSingleTaskSchema)
+    .input(deleteTaskSchema)
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.task.delete({
+      await ctx.prisma.task.delete({
         where: {
           id: input.taskId,
         },

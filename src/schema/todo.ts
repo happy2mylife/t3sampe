@@ -19,6 +19,6 @@ export const getSingleTaskSchema = z.object({
   taskId: z.string().cuid(),
 });
 
-export const deleteSingleTaskSchema = z.object({
+export const deleteTaskSchema = z.object({
   taskId: z.string().cuid(),
 });
