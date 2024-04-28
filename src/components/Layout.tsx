@@ -13,7 +13,9 @@ const Layout = ({ children, title }: Props) => {
         <meta />
         <link rel="stylesheet" href="" />
       </Head>
-      <main>{children}</main>
+      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
+        {children}
+      </main>
     </>
   );
 };

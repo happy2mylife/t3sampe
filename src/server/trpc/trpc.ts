@@ -2,12 +2,25 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 
 import { type Context } from "./context";
+import { ZodError } from "zod";
 
 // tRCPCで使えるサーバーのインスタンスを生成している
 const t = initTRPC.context<Context>().create({
   transformer: superjson,
-  errorFormatter({ shape }) {
-    return shape;
+  // https://trpc.io/docs/server/error-formatting
+  // zodのバリデーションで弾かれた時に、エラーメッセージを詳細にするため
+  errorFormatter(opts) {
+    const { shape, error } = opts;
+    return {
+      ...shape,
+      data: {
+        ...shape.data,
+        zodError:
+          error.code === "BAD_REQUEST" && error.cause instanceof ZodError
+            ? error.cause.flatten()
+            : null,
+      },
+    };
   },
 });
 

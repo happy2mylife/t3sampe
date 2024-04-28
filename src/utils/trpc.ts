@@ -1,3 +1,4 @@
+// tRPCクライアントの設定が書かれている
 import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
@@ -15,6 +16,15 @@ export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
       transformer: superjson,
+      // tRPCの裏側でReactQueryが使われていて、ここでカスタマイズする
+      queryClientConfig: {
+        defaultOptions: {
+          queries: {
+            retry: false, // fetchに失敗したら3回繰り返すが、falseに
+            refetchOnWindowFocus: false,
+          },
+        },
+      },
       links: [
         loggerLink({
           enabled: (opts) =>

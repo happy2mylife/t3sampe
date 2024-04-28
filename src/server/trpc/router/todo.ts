@@ -32,6 +32,7 @@ export const todoRouter = router({
     }),
   // publicProcedure: タスク取得ではGithub認証を不要とするので
   getTasks: publicProcedure.query(({ ctx }) => {
+    console.log("getTasks");
     return ctx.prisma.task.findMany({
       where: {
         // ログインしているユーザーが作成したタスクのみ取得

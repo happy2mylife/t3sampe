@@ -3,6 +3,8 @@ import { signOut, useSession } from "next-auth/react";
 import Layout from "../components/Layout";
 import Auth from "../components/Auth";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
+import { TaskForm } from "../components/TaskForm";
+import { TaskList } from "../components/TaskList";
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
@@ -19,8 +21,10 @@ const Home: NextPage = () => {
       <ArrowLeftOnRectangleIcon
         className="h-6 w-6 cursor-pointer text-blue-600"
         onClick={() => signOut()}
-      ></ArrowLeftOnRectangleIcon>
+      />{" "}
       <p className="my-3 text-xl text-blue-600"> {session.user?.name}</p>
+      <TaskForm></TaskForm>
+      <TaskList></TaskList>
     </Layout>
   );
 };
