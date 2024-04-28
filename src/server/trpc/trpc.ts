@@ -3,6 +3,7 @@ import superjson from "superjson";
 
 import { type Context } from "./context";
 
+// tRCPCで使えるサーバーのインスタンスを生成している
 const t = initTRPC.context<Context>().create({
   transformer: superjson,
   errorFormatter({ shape }) {
