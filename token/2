@@ -1,0 +1,16 @@
+// Example JSON for COIN1 (https://mytoken.com/api/item/1.json)
+{
+  "name": "kinoko no 2",
+  "description": "This is a Kino No.2 coin.",
+  "image": "https://mashandroom.org/wp-content/uploads/2017/04/logo-320x320.png",
+  "attributes": [
+    {
+      "trait_type": "Denomination",
+      "value": "2"
+    },
+    {
+      "trait_type": "Material",
+      "value": "eringi"
+    }
+  ],
+}
