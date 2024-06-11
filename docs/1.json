@@ -4,12 +4,12 @@
   "image": "https://mashandroom.org/wp-content/uploads/2017/04/logo-320x320.png",
   "attributes": [
     {
-      "trait_type": "Denomination",
-      "value": "1"
+      "trait_type": "イベント",
+      "value": "キノコ大祭"
     },
     {
-      "trait_type": "Material",
-      "value": "shimeji"
+      "trait_type": "価格",
+      "value": "10kn"
     }
   ]
 }
