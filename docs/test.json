@@ -1,0 +1,15 @@
+{
+  "name": "kinoko no test",
+  "description": "This is a 1 Kino No.2 coin.",
+  "image": "https://mashandroom.org/wp-content/uploads/2017/04/all-kinoko.png",
+  "attributes": [
+    {
+      "trait_type": "Denomination",
+      "value": "1"
+    },
+    {
+      "trait_type": "Material",
+      "value": "shimeji"
+    }
+  ]
+}
