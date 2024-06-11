@@ -1,0 +1,23 @@
+{
+  "name": "タケノコ2号機！",
+  "description": "タケノコ2号機特別コイン！",
+  "image": "https://happy2mylife.github.io/t3sampe/{id}.png",
+  "attributes": [
+    {
+      "trait_type": "イベント",
+      "value": "タケノコ祭典"
+    },
+    {
+      "trait_type": "価格",
+      "value": "10tk"
+    },
+    {
+      "trait_type": "強度",
+      "value": "タフ"
+    },
+    {
+      "trait_type": "一言",
+      "value": "どもども！"
+    }
+  ]
+}
