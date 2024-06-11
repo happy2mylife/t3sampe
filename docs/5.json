@@ -1,0 +1,23 @@
+{
+  "name": "タケノコ103号機！",
+  "description": "期間限定！タケノコ103号機コイン！",
+  "image": "https://happy2mylife.github.io/t3sampe/{id}.png",
+  "attributes": [
+    {
+      "trait_type": "イベント",
+      "value": "タケノコの祭典"
+    },
+    {
+      "trait_type": "価格",
+      "value": "20tk"
+    },
+    {
+      "trait_type": "強度",
+      "value": "タフ"
+    },
+    {
+      "trait_type": "一言",
+      "value": "いや"
+    }
+  ]
+}
