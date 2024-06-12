@@ -2,6 +2,9 @@
   "name": "kinoko no 1",
   "description": "This is a 1 Kino No.1 coin.",
   "image": "https://mashandroom.org/wp-content/uploads/2017/04/logo-320x320.png",
+  "external_url": "https://mashandroom.org",
+  "animation_url": "https://happy2mylife.github.io/t3sampe/2022kinoko.mp4",
+  "youtube_url": "https://www.youtube.com/watch?v=fvH0opf46S4&t=7s",
   "attributes": [
     {
       "trait_type": "イベント",
